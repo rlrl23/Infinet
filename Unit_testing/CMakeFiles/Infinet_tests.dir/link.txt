@@ -1,0 +1,1 @@
+/bin/c++ -rdynamic CMakeFiles/Infinet_tests.dir/tests/test_func_c.cpp.o -o Infinet_tests  /usr/lib/x86_64-linux-gnu/libgtest.a -lpthread 

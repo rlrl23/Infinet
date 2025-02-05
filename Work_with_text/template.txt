@@ -1,0 +1,22 @@
+Value PTP_role (\S+)
+Value Device_name (\w+ \w+)
+Value Uptime (\d+h \d+m \d+s)
+Value Link_time (\d+h \d+m \d+s)
+Value State (\S+)
+Value Temperature (\d+)
+Value Distance (\d+)
+Value DFS (\S+)
+Value TX_power (-?\d+.?\d+ \/ -?\d+.?\d+ \w+)
+Value AMC_strategy (\w+)
+Value Remote_TX_power (-?\d+.?\d+ \/ -?\d+.?\d+ \w+)
+
+Start
+ ^${PTP_role}[>#].
+ ^.+PTP role +${PTP_role}
+ ^.+Device name +${Device_name}
+ ^.+Uptime +${Uptime}
+ ^.+Link time +${Link_time}
+ ^.+State +${State}.+Temperature +${Temperature}
+ ^.+Distance +${Distance}.+DFS +${DFS}
+ ^.+TX power +${TX_power}.+AMC strategy +${AMC_strategy}
+ ^.+Remote TX power +${Remote_TX_power}

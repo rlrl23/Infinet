@@ -1,0 +1,4 @@
+/home/liubov/PycharmProjects/Infinet_tests/CMakeFiles/Infinet_tests.dir
+/home/liubov/PycharmProjects/Infinet_tests/CMakeFiles/test.dir
+/home/liubov/PycharmProjects/Infinet_tests/CMakeFiles/edit_cache.dir
+/home/liubov/PycharmProjects/Infinet_tests/CMakeFiles/rebuild_cache.dir
