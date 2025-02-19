@@ -1,22 +1,85 @@
 Value PTP_role (\S+)
-Value Device_name (\w+ \w+)
-Value Uptime (\d+h \d+m \d+s)
-Value Link_time (\d+h \d+m \d+s)
 Value State (\S+)
-Value Temperature (\d+)
+Value Uptime ([\d\w\s]+s)
+Value Link_time ([\d\w\s]+s)
 Value Distance (\d+)
-Value DFS (\S+)
+Value Link_ID (\d+)
 Value TX_power (-?\d+.?\d+ \/ -?\d+.?\d+ \w+)
-Value AMC_strategy (\w+)
+Value Temperature (\d+)
 Value Remote_TX_power (-?\d+.?\d+ \/ -?\d+.?\d+ \w+)
+Value AMC_strategy (\S+)
+Value Device_name ([\w\d.]+)
+Value DFS (\S+)
+Value Remote_device_name ([\w\d.]+)
+Value Serial_ID (\d+)
+Value Remote_serial_ID (\d+)
+Value Bandwidth (\d+)
+Value DL_quota (\d+)
+Value Frame_length (\d+)
+Value Guard_interval (\d+/\d+)
+Value Downlink_Frequency (\d+)
+Value Uplink_Frequency (\d+)
+Value Downlink_Capacity (\d+.\d+)
+Value Uplink_Capacity (\d+.\d+)
+Value Downlink_Throughput (\d+)
+Value Uplink_Throughput (\d+)
+Value Downlink_Stream_0_MCS (\S+ \S+)
+Value Downlink_Stream_0_RSSI (\S+ \S+)
+Value Downlink_Stream_0_EVM (\S+)
+Value Downlink_Stream_0_Crosstalk (\S+)
+Value Downlink_Stream_0_Frames (\d+)
+Value Downlink_Stream_0_Errors (\d+)
+Value Downlink_Stream_0_ARQ_ratio (\S+)
+Value Downlink_Stream_0_Tx_attenuation (\S+)
+Value Downlink_Stream_1_MCS (\S+ \S+)
+Value Downlink_Stream_1_RSSI (\S+ \S+)
+Value Downlink_Stream_1_EVM (\S+)
+Value Downlink_Stream_1_Crosstalk (\S+)
+Value Downlink_Stream_1_Frames (\d+)
+Value Downlink_Stream_1_Errors (\d+)
+Value Downlink_Stream_1_ARQ_ratio (\S+)
+Value Downlink_Stream_1_Tx_attenuation (\S+)
+Value Uplink_Stream_0_MCS (\S+ \S+)
+Value Uplink_Stream_0_RSSI (\S+ \S+)
+Value Uplink_Stream_0_EVM (\S+)
+Value Uplink_Stream_0_Crosstalk (\S+)
+Value Uplink_Stream_0_Frames (\d+)
+Value Uplink_Stream_0_Errors (\d+)
+Value Uplink_Stream_0_ARQ_ratio (\S+)
+Value Uplink_Stream_0_Tx_attenuation (\S+)
+Value Uplink_Stream_1_MCS (\S+ \S+)
+Value Uplink_Stream_1_RSSI (\S+ \S+)
+Value Uplink_Stream_1_EVM (\S+)
+Value Uplink_Stream_1_Crosstalk (\S+)
+Value Uplink_Stream_1_Frames (\d+)
+Value Uplink_Stream_1_Errors (\d+)
+Value Uplink_Stream_1_ARQ_ratio (\S+)
+Value Uplink_Stream_1_Tx_attenuation (\S+)
 
 Start
  ^${PTP_role}[>#].
  ^.+PTP role +${PTP_role}
- ^.+Device name +${Device_name}
+ ^.+State +${State}
  ^.+Uptime +${Uptime}
  ^.+Link time +${Link_time}
- ^.+State +${State}.+Temperature +${Temperature}
- ^.+Distance +${Distance}.+DFS +${DFS}
- ^.+TX power +${TX_power}.+AMC strategy +${AMC_strategy}
- ^.+Remote TX power +${Remote_TX_power}
+ ^.+Distance +${Distance}.+Link ID +${Link_ID}
+ ^.+TX power +${TX_power}.+Temperature +${Temperature}
+ ^.+Remote TX power +${Remote_TX_power}.+AMC strategy +${AMC_strategy}
+ ^.+Device name +${Device_name}.+DFS +${DFS}
+ ^.+Remote device name +${Remote_device_name}
+ ^.+Serial ID +${Serial_ID}
+ ^.+Remote serial ID +${Remote_serial_ID}
+ ^.+Bandwidth +${Bandwidth}.+DL quota +${DL_quota}
+ ^.+Frame length +${Frame_length}.+Guard interval +${Guard_interval}
+ ^.+Frequency.+ ${Downlink_Frequency}.+ ${Uplink_Frequency}
+ ^.+Capacity.+ ${Downlink_Capacity}.+ ${Uplink_Capacity}
+ ^.+Throughput.+ ${Downlink_Throughput}.+ ${Uplink_Throughput}
+ ^.+MCS +. +${Downlink_Stream_0_MCS} +. +${Downlink_Stream_1_MCS} +. +${Uplink_Stream_0_MCS} +. +${Uplink_Stream_1_MCS}
+ ^.+RSSI +. +${Downlink_Stream_0_RSSI} dBm +. +${Downlink_Stream_1_RSSI} dBm +. +${Uplink_Stream_0_RSSI} dBm +. +${Uplink_Stream_1_RSSI} dBm
+ ^.+EVM +. +${Downlink_Stream_0_EVM} dB +. +${Downlink_Stream_1_EVM} dB +. +${Uplink_Stream_0_EVM} dB +. +${Uplink_Stream_1_EVM} dB
+ ^.+Crosstalk +. +${Downlink_Stream_0_Crosstalk} dB +. +${Downlink_Stream_1_Crosstalk} dB +. +${Uplink_Stream_0_Crosstalk} dB +. +${Uplink_Stream_1_Crosstalk} dB
+ ^.+Frames +. +${Downlink_Stream_0_Frames} +. +${Downlink_Stream_1_Frames} +. +${Uplink_Stream_0_Frames} +. +${Uplink_Stream_1_Frames}
+ ^.+Errors +. +${Downlink_Stream_0_Errors} +. +${Downlink_Stream_1_Errors} +. +${Uplink_Stream_0_Errors} +. +${Uplink_Stream_1_Errors}
+ ^.+ARQ ratio +. +${Downlink_Stream_0_ARQ_ratio} % +. +${Downlink_Stream_1_ARQ_ratio} % +. +${Uplink_Stream_0_ARQ_ratio} % +. +${Uplink_Stream_1_ARQ_ratio} %
+ ^.+Tx attenuation +. +${Downlink_Stream_0_Tx_attenuation} dB +. +${Downlink_Stream_1_Tx_attenuation} dB +. +${Uplink_Stream_0_Tx_attenuation} dB +. +${Uplink_Stream_1_Tx_attenuation} dB
+
